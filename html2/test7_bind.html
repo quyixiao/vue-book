@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <a v-bind:href="url">连接</a>
+    <img v-bind:src="imgUrl">
+</div>
+
+
+<script>
+    var app = new Vue({
+        el:'#app',
+        data :{
+            url : 'https://www.github.com',
+            imgUrl : 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595506868146&di=36de614c4df09f9f33ba11f457b07a7e&imgtype=0&src=http%3A%2F%2F05.imgmini.eastday.com%2Fmobile%2F20180323%2F20180323150837_280422f803afbc6b12e946c7a6e57999_2.jpeg'
+        }
+    })
+</script>
+
+</body>
+</html>

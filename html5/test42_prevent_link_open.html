@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <a href="http://www.baidu.com" @click="handleClick('禁止打开',$event)">禁止打开</a><br>
+    <!--阻止单击事件冒泡-->
+    <a @click.stop="handle"></a>
+    <!--提交事件不再重载页面-->
+    <form @submit.prevent="handle"></form>
+    <!--修饰符可以串联-->
+    <a @click.stop.prevent="handle"></a>
+    <!--只有修饰符-->
+    <form @submit.prevent="handle"></form>
+    <!--添加事件侦听器时使用事件捕获模式-->
+    <div @click.capture="handle"></div>
+    <!--只当事件在该元素本身(而不是子元素 )触发时触发回调-->
+    <div @click.self="handle"></div>
+    <!--只触发一次，组件同样适用-->
+    <div @click.once="handle"></div>
+    <!--只有在keyCode 是13时调用，vm.submit()-->
+    <input @keyup.13="submit">
+    <!--Shift + S -->
+    <input @keyup.shift.83="handleSave">
+    <!--Ctrl+Click-->
+    <div @click.ctrl="doSomething">DoSomething</div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        methods: {
+            handleClick: function (message, event) {
+                event.preventDefault();
+                window.alert(message);
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

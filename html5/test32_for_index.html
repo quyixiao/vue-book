@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="(book ,index) in books">{{index}}-{{book.name}}</li>
+    </ul>
+
+</div>
+
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {name: 'Vue.js 实战'},
+                {name: 'JavaScript 语言精粹'},
+                {name: 'JavaScrip 高级程序设计'}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

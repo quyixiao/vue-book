@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+
+    <div id="mount-div"></div>
+
+</div>
+
+<script>
+
+
+    var myComponent = Vue.extend({
+        template: '<div>Hello : {{name}}</div>',
+        data: function () {
+            return {
+                name: 'Aresn',
+            }
+        }
+    });
+    // new myComponent().$mount('#mount-div');
+    //同上
+    /*new myComponent({
+        el:'#mount-div'
+    })*/
+    // 或者，在文档之外渲染并且随后挂载
+    var component = new myComponent().$mount();
+    document.getElementById('mount-div').appendChild(component.$el);
+</script>
+
+</body>
+</html>

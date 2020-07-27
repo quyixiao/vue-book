@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <ele :list="list"></ele>
+    <button @click="handleClick">显示列表</button>
+</div>
+
+<script>
+    // 首先判断prop : list 是不是为空，如果是空，就渲染一个"列表为空"的<p>元素，如果不是空数组，那就把每一项作为<li>渲染，放下<ul>下
+    // map()方法是快速改变数组结构，返回一个新的数组，如你不熟悉数组的这种链式操作（map常和filter,sort等方法一起使用，因为它们返回的都是
+    // 新的数组，）可以使用简单的for循环，这样更加容易理解
+    // <ul v-if='list.length'>
+    //      <li v-for="item in list" >{{item}}</li>
+    // </ul>
+    // <p v-else>列表为空</p>
+
+    Vue.component('ele', {
+        render: function (createElement) {
+            if (this.list.length) {
+                return createElement('ul', this.list.map(function (item) {
+                    return createElement('li', item);
+                }));
+            } else {
+                return createElement('p', '列表为空');
+            }
+        },
+        props: {
+            list: {
+                type: Array,
+                default: function () {
+                    return [];
+                }
+            }
+        }
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            list: []
+        },
+        methods: {
+            handleClick: function () {
+                this.list = [
+                    'Vue.js 实战',
+                    'JavaScript 高级程序设计',
+                    'JavaScript 语言精粹'
+                ]
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>

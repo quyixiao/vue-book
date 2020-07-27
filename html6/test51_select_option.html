@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <select v-model="selected">
+        <option>html</option>
+        <option value="js">JavaScript</option>
+        <option>css</option>
+    </select>
+
+
+
+    <p>选择项是:{{selected}}</p>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            selected:'css',
+        },
+
+    });
+
+</script>
+</body>
+</html>

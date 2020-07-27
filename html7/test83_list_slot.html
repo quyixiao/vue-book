@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <my-list :books="books">
+        <!--作用域插槽也可以具有名为Slot-->
+        <template slot="book" scope="props">
+            <li>{{props.bookName}}</li>
+        </template>
+    </my-list>
+</div>
+
+<script>
+
+    Vue.component('my-list', {
+        props: {
+            books: {
+                type: Array,
+                default: function () {
+                    return [];
+                }
+            }
+        },
+        template: '\
+        <ul>\
+            <slot name="book"  v-for="book in books" :book-name="book.name"></slot>\
+        <!--这也是可了是默认的slot内容-->\
+        \
+        </ul>'
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {name: 'Vue.js 实战'},
+                {name: 'JavaScript语言精粹'},
+                {name: 'JavaScript 高级编程'}
+            ]
+        }
+    })
+</script>
+
+</body>
+</html>

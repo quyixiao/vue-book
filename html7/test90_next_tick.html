@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <!--这段代码并不难理解，但是运行后在控制台会抛出一个错误，TypeError: Cannot read property 'innerHTML' of null ，
+    意思就是获取不到div的元素，这里涉及到一个vue的重要的概念，异步更新队列，
+    Vue在观察到数据变化时并不直接更新Dom ，而是开启一个队列，并缓冲同一事件循环中发生的所有数据改变，在缓冲会去除重复的数据 ，从而
+    避免不必要的计算和DOM操作，然后在下一个事件循环tick中，Vue刷新队列并执行实际（己去重的工作），所以如果你用一个for循环来动态改变
+    数据100次，其实它只会应用到最后一次改变，如果没有这种机制，DOM就要重绘100次，这固然是一个很大的开销
+    Vue会根据当前的浏览器环境优先使用原生的Promise.then ,和MutationObserver，如果不支持就会采用setTimeout代替
+    -->
+
+    <div id="div" v-if="showDiv">这是一段文本</div>
+    <button @click="getText">获取div内容</button>
+</div>
+
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            showDiv: false
+        },
+        methods: {
+            getText: function () {
+                this.showDiv = true;
+                var text = document.getElementById('div').innerHTML;
+                console.log(text);
+                alert(text);
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <ele>
+    </ele>
+</div>
+
+<script>
+
+    // 局部声明组件
+    var Child = {
+        render: function (createElement) {
+            return createElement('p', 'text');
+        }
+    }
+    Vue.component('ele', {
+        render: function (createElement) {
+            return createElement('div',
+                Array.apply(null, {
+                    length: 5
+                }).map(function () {
+                    return createElement(Child);
+                })
+            );
+        },
+    });
+    var app = new Vue({
+        el: '#app',
+    })
+</script>
+
+
+</body>
+</html>

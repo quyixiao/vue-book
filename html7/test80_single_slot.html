@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <child-component>
+        <p>分发的内容</p>
+    </child-component>
+</div>
+
+<script>
+
+    Vue.component('child-component', {
+        template: '\
+        <div>\
+            <slot>\
+                <p>如果父组件没有插入内容，我将作为默认的出现</p>\
+            </slot>\
+        <div>',
+        data: function () {
+            return {
+                showChild: true
+            }
+        }
+    })
+    var app = new Vue({
+        el: '#app',
+    })
+</script>
+
+</body>
+</html>

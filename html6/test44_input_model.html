@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <input type="text" v-model="xxxx" placeholder="输入...">
+    <p>输入的内容是:{{xxxx}}</p>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            xxxx : ''
+        }
+
+    });
+
+</script>
+</body>
+</html>

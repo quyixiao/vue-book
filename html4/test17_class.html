@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+
+<div id="app">
+    <div class="static " :class="{'active':isActive,'error':isError}">江粉磁材oi</div>
+</div>
+
+<script>
+
+    var app = new Vue({
+        el:'#app',
+        data :{
+            isActive : true,
+            isError:true
+        }
+    })
+
+
+</script>
+</body>
+</html>

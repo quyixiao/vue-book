@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <ele></ele>
+    <ele>
+        <p>slot的内容</p>
+    </ele>
+</div>
+
+<script>
+    Vue.component('ele', {
+        render: function (createElement) {
+            if (this.$slots.defalut === undefined) {
+                return createElement('div', '没有使用slot时显示文本');
+            } else {
+                return createElement('div', this.$slots.defalut);
+            }
+        },
+    })
+    var app = new Vue({
+        el: '#app',
+    })
+</script>
+
+
+</body>
+</html>

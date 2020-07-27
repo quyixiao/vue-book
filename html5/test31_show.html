@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--v-show的用法与v-if基本一致，只不过v-show是改变元素的css属性display ，当v-show表达式的值为false 时，元素会自动隐藏，查看
+
+v-if 和v-show具有类似的功能，不过v-if才是真正的条件渲染，它会根据表达式适当的销毁或者重建元素及绑定事件或者子元素，若表达式初始值为false
+，则元素一开始元素组件并不会渲染，只有当条件第一次变为真才开始编译。
+而v-show只是简单的CSS属性切换，无论条件真是否，都会被编译，相比之下，v-if更加适合条件不经常变的场景，因为它切换开销相对较大，而v-show
+和适用于频繁切换的条件。
+
+-->
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <p v-show="status === 1">当status为1时显示该行</p>
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            status: 1
+        },
+    })
+</script>
+</body>
+</html>

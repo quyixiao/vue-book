@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <!--tbody在渲染时会被替换成模版，是不受限制的，比如后面的章节中的介绍的.vue单文件用法等
+    -->
+    <table>
+        <tbody is="my-component"></tbody>
+    </table>
+</div>
+
+<script>
+    Vue.component ('my-component',{
+        template : '<div>这里是组件的内容</div>'
+    })
+    var app = new Vue({
+        el : '#app',
+    })
+</script>
+
+</body>
+</html>

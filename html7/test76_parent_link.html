@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    {{message}}
+    <my-component></my-component>
+</div>
+
+<script>
+    <!--在子组件中，使用this.$parent可以直接方法该组件的父实例或者组件，父组件也可以通过this.$children访问它所有的子组件 ，而且递归身上或者向下无线访问，直到根实例最内层的组件，-->
+    Vue.component('my-component', {
+        template: '<button @click="handleEvent">通过父链直接修改数据</button>',
+        methods: {
+            handleEvent: function () {
+               // 访问到父链后，可以做任何操作，比如直接修改数据
+                this.$parent.message = '来自组件的component-a的内容';
+            },
+
+        }
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: ''
+        },
+
+    })
+</script>
+
+</body>
+</html>

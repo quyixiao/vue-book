@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="parent">
+    父元素
+    <div id="children">子元素</div>
+</div>
+
+
+
+
+
+<script>
+
+    var A = document.getElementById('parent');
+    var B = document.getElementById('children');
+
+    alert('A.constains(B) :' + (A.contains(B)))
+    alert('B.constains(A) :' + (B.contains(A)))
+</script>
+
+
+</body>
+</html>

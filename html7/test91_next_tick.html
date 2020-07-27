@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+
+
+    <div id="div" v-if="showDiv">这是一段文本</div>
+    <button @click="getText">获取div内容</button>
+</div>
+
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            showDiv: false
+        },
+        methods: {
+            getText: function () {
+                this.showDiv = true;
+                this.$nextTick(function () {
+                    var text = document.getElementById('div').innerHTML;
+                    console.log(text);
+                    alert(text);
+                })
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

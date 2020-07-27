@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <input type="text" v-model="parentMessage">
+    <my-component :message="parentMessage"></my-component>
+</div>
+
+<script>
+    Vue.component('my-component',{
+        props :['message'],
+        template :'<div>{{message}}</div>'
+    })
+    var app = new Vue({
+        el: '#app',
+        data:{
+            parentMessage :''
+        }
+    })
+</script>
+
+</body>
+</html>

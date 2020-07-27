@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <div :style="styles">文本</div>
+</div>
+
+<script>
+
+
+    
+    var app = new Vue({
+        el: '#app',
+        data: {
+            styles:{
+                color : 'red',
+                fontSize:30 + 'px'
+            }
+
+        },
+
+
+    })
+
+
+</script>
+</body>
+</html>

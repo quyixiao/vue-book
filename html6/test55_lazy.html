@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<!--这个时候，并不是实时改变的，而是失去焦点或者按回车时才更新的-->
+<div id="app">
+    <input type="text" v-model.lazy="message">
+    <p>{{message}}</p>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message : ''
+        },
+
+    });
+
+</script>
+</body>
+</html>

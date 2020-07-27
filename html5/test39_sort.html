@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <ul>
+        <template v-for="book in filterBooks">
+            <li>书名：{{book.name}}</li>
+            <li>作者：{{book.author}}</li>
+        </template>
+    </ul>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {
+                    name: 'Vue实战',
+                    author: '梁灏',
+                },
+                {
+                    name: 'JavaScript语言精粹',
+                    author: 'Douglas Crockford',
+                },
+                {
+                    name: 'JavaScript 高级程序设计',
+                    author: 'Nocholas C.Zakas ',
+                }
+            ]
+        },
+        computed: {
+            filterBooks: function () {
+                return this.books.sort(function (a,b) {
+                    return false;
+                });
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

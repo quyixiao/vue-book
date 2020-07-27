@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <anchor :level="1" title="特性">特性</anchor>
+
+
+</div>
+
+<script>
+
+    Vue.component('anchor', {
+        props: {
+            level: {
+                type: Number,
+                required: true
+            },
+            title: {
+                type: String,
+                default: ''
+            }
+        },
+        // Render 函数通过createElment参数来创建VirtualDom 结构精简了很多，在第7组件中介绍slot时，有提到过访问slot的用法，使用场景
+        // 就是在Render函数 。
+        // Render 函数所有的神奇的地方都是在createElment里，下一节我们来介绍它的详细的配置和用法。
+        render: function (createElment) {
+            return createElment('h' + this.level,
+                [
+                    createElment('a',{
+                        domProps:{
+                            href : '#'+this.title
+                        },
+                    },this.$slots.default )
+                ])
+        }
+    });
+
+
+    var app = new Vue({
+        el: '#app',
+    })
+</script>
+
+
+</body>
+</html>

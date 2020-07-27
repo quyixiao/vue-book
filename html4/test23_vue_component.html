@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+
+<div id="app">
+    <my-component :class="{'active':isActive}"></my-component>
+</div>
+
+<script>
+
+    Vue.component ('my-component',{
+        template:'<p class="article">一些文本</p>'
+    })
+
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            isActive :true ,
+        },
+
+
+    })
+
+
+</script>
+</body>
+</html>
