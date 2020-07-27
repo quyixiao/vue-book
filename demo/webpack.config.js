@@ -43,6 +43,7 @@ var config = {
         ]
     },
     plugins: [
+        //重命名提取后的css文件
         new ExtractTextPlugin("main.css")
     ]
 };
